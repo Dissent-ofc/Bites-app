@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --card: #1e1e1e;
+    --bg: #15110f;
+    --surface: #1a1512;
+    --card: #211a17;
+    --border: #332823;
+    --header-bg: rgba(21, 17, 15, 0.92);
+  --muted: #888;
+  --green: #3ecf8e;
+  --accent2: #ffb347;
+    --text: #f1ece6;
+    --muted: #9b8d85;
+    --green: #4ed099;
+    --blue: #62a7ff;
+    --purple: #b596ff;
+    --bg-layer-1: radial-gradient(850px 520px at 52% 112%, rgba(197, 91, 54, 0.42), transparent 56%);
+    --bg-layer-2: radial-gradient(720px 380px at 18% 16%, rgba(139, 110, 89, 0.18), transparent 60%);
+    --bg-layer-3: radial-gradient(560px 320px at 86% 22%, rgba(109, 85, 69, 0.14), transparent 62%);
+    --bg-layer-4: linear-gradient(180deg, #1b1613 0%, #171310 42%, #15110f 100%);
+    --bg-grain-a: rgba(238, 210, 197, 0.07);
+    --bg-grain-b: rgba(201, 132, 102, 0.07);
+    --bg-grain-c: rgba(255, 160, 123, 0.05);
+    --page-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    --page-glass-border: rgba(255, 184, 144, 0.08);
+}
+
+:root[data-theme="light"] {
+    --bg: #eef6f7;
+    --surface: rgba(255, 255, 255, 0.68);
+    --card: rgba(255, 255, 255, 0.74);
+    --border: rgba(165, 190, 196, 0.38);
+    --header-bg: rgba(238, 246, 247, 0.68);
+    --accent: #ef5a24;
+    --accent2: #ffb347;
+  --text: #000000;
+  --muted: #111111;
+    --green: #1f9d6b;
+    --blue: #2c77e8;
+    --purple: #6e5de1;
+    --bg-layer-1: radial-gradient(720px 420px at 18% 18%, rgba(255, 227, 232, 0.95), transparent 44%);
+    --bg-layer-2: radial-gradient(640px 380px at 74% 14%, rgba(212, 241, 245, 0.98), transparent 46%);
+    --bg-layer-3: radial-gradient(520px 280px at 50% 92%, rgba(255, 237, 208, 0.88), transparent 56%);
+    --bg-layer-4: linear-gradient(180deg, #f7fbfc 0%, #eef6f7 48%, #f8fbfc 100%);
+    --bg-grain-a: rgba(255, 255, 255, 0.55);
+    --bg-grain-b: rgba(211, 223, 228, 0.42);
+    --bg-grain-c: rgba(255, 255, 255, 0.34);
+    --page-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.34));
+    --page-glass-border: rgba(255, 255, 255, 0.58);
+}
+
+body {
+  background:
+    var(--bg-layer-1),
+    var(--bg-layer-2),
+    var(--bg-layer-3),
+    var(--bg-layer-4);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  isolation: isolate;
+  background-size: auto, auto, auto, 100% 100%;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Soft grain and sauce-like speckles for a food-themed atmosphere. */
+body::before {
+  background:
+    radial-gradient(circle at 20% 30%, var(--bg-grain-a) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 70%, var(--bg-grain-b) 0 1px, transparent 2px),
+    radial-gradient(circle at 35% 85%, var(--bg-grain-c) 0 1px, transparent 2px);
+  background-size: 180px 180px, 220px 220px, 200px 200px;
+  opacity: 0.78;
+}
+
+body::after {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 45%),
+    linear-gradient(315deg, rgba(255, 120, 70, 0.04), transparent 55%);
+  animation: ambienceShift 18s ease-in-out infinite alternate;
+}
+
+body > #root {
+  position: relative;
+  z-index: 1;
+}
+
+body > #root::before {
+  content: "";
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  right: -110px;
+  top: 64px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.58) 0%, rgba(248, 209, 220, 0.24) 40%, transparent 72%);
+  filter: blur(4px);
+  z-index: -1;
+  animation: floatSpice 12s ease-in-out infinite;
+}
+
+:root[data-theme="dark"] body > #root::before {
+  background: radial-gradient(circle, rgba(255, 179, 71, 0.18) 0%, rgba(255, 92, 40, 0.06) 42%, transparent 72%);
+}
+
+h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+button { cursor: pointer; font-family: 'DM Sans', sans-serif; }
+input { font-family: 'DM Sans', sans-serif; color: var(--text); }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+.badge-green { background: rgba(62,207,142,.15); color: var(--green); }
+.badge-orange { background: rgba(255,92,40,.15); color: var(--accent); }
+.badge-blue { background: rgba(74,158,255,.15); color: var(--blue); }
+.badge-purple { background: rgba(167,139,250,.15); color: var(--purple); }
+.badge-muted { background: rgba(255,255,255,.06); color: var(--muted); }
+
+@keyframes fadeUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes ambienceShift { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+@keyframes floatSpice {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14px, 12px, 0) scale(1.05); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+.fade-up { animation: fadeUp 0.35s ease forwards; }
+.pulse { animation: pulse 2s ease-in-out infinite; }
+.page {
+  padding: 36px 40px;
+  max-width: 1150px;
+  margin: 0 auto;
+  background: var(--page-glass);
+  border: 1px solid var(--page-glass-border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 860px) {
+  body > #root::before {
+    width: 220px;
+    height: 220px;
+    right: -90px;
+    top: 88px;
+    opacity: 0.7;
+  }
+
+  .page {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    backdrop-filter: none;
+  }
+}

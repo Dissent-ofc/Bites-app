@@ -1,0 +1,33 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  flex: 1;
+  min-width: 130px;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--border-hover, #3a3a3a); }
+
+.icon { font-size: 22px; margin-bottom: 8px; }
+
+.value {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.highlight { color: var(--accent2); }
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sub {
+  font-size: 11px;
+  color: var(--green);
+  margin-top: 5px;
+}

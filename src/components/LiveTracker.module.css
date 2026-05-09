@@ -1,0 +1,233 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.orderInfo {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+
+.orderId {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.restaurant {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.items {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.orderIcon {
+  font-size: 30px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.countdownSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.countdownIcon {
+  font-size: 24px;
+  animation: pulse 2s infinite;
+}
+
+.countdownLabel {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.countdownTimer {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 1px;
+}
+
+.arrivalSection {
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(74, 158, 255, 0.15));
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.arrivalLabel {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.arrivalTime {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.arrivalStatus {
+  font-size: 12px;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.totalLabel {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.totalAmount {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.paymentLine {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.noOrder {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 500;
+}
+
+.noOrderSub {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  padding: 0 0 10px;
+  opacity: 0.7;
+}
+
+.driverRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.driver {
+  font-size: 12px;
+  color: var(--green);
+}
+
+.eta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent2);
+  font-family: 'Syne', sans-serif;
+}
+
+.steps { display: flex; flex-direction: column; }
+
+.step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.done { background: var(--accent); color: #fff; }
+.active { background: var(--accent2); color: #000; }
+
+.line {
+  width: 1px;
+  height: 26px;
+  background: var(--border);
+  margin: 3px 0;
+  transition: background 0.3s;
+}
+.lineDone { background: var(--accent); }
+
+.stepLabel {
+  font-size: 13px;
+  padding-top: 3px;
+  padding-bottom: 22px;
+}
+
+.stepActive { color: var(--accent2); font-weight: 600; }
+.stepDone { color: var(--text); }
+.stepPending { color: var(--muted); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
