@@ -63,7 +63,7 @@ export function createApp() {
     app.use(express.static(staticPath));
 
     // For any other route, serve index.html so the client-side router can handle it.
-    app.get("*", (_req, res) => {
+    app.get(/./, (_req, res) => {
       res.sendFile(path.join(staticPath, "index.html"));
     });
   }
