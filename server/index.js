@@ -1,5 +1,6 @@
 import "dotenv/config";
-import { pathToFileURL } from "node:url";
+import { pathToFileURL, fileURLToPath } from "node:url";
+import path from "node:path";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -52,6 +53,20 @@ export function createApp() {
   app.use("/api/cart", authenticate, cartRoutes);
   app.use("/api/orders", authenticate, ordersRoutes);
   app.use("/api/auth", authRoutes);
+
+  // Serve frontend static files in production from the `dist` folder.
+  if (process.env.NODE_ENV === "production") {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const staticPath = path.join(__dirname, "..", "dist");
+
+    app.use(express.static(staticPath));
+
+    // For any other route, serve index.html so the client-side router can handle it.
+    app.get("*", (_req, res) => {
+      res.sendFile(path.join(staticPath, "index.html"));
+    });
+  }
 
   return app;
 }
