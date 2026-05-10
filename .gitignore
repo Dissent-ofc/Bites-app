@@ -1,4 +1,21 @@
-.env
+# Logs
+logs
+*.log
+
 node_modules
 dist
+dist-ssr
+.env
 test-results
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
